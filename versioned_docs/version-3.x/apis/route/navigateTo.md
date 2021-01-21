@@ -80,8 +80,12 @@ Taro.navigateTo({
     res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
   }
 })
-```
 
+被打开的页面
+const pages =getCurrentPages();
+const current = pages[pages.length - 1];
+const eventChannel = current.getOpenerEventChannel();
+eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
 ## API 支持度
 
 | API | 微信小程序 | H5 | React Native |
